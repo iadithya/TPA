@@ -1,0 +1,179 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<constant name="struts.custom.i18n.resources" value="tpaapp" />
+	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
+	<constant name="struts.devMode" value="false" />
+	<package name="Test" extends="struts-default">
+
+		<interceptors>
+			<interceptor name="loginInterceptor" class="com.app.action.LoginIntercepter" />
+			<interceptor name="globalInterceptor" class="com.app.action.GlobalInterceptor" />
+			<interceptor-stack name="globalStack">
+				<interceptor-ref name="globalInterceptor" />
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+		</interceptors>
+
+		<default-interceptor-ref name="globalStack" />
+
+		<default-action-ref name="index" />
+
+		<global-results>
+			<result name="ANONYMOUS">/login.jsp</result>
+			<result name="LOGINSUCCESS" type="redirect">Dashboard.action</result>
+		</global-results>
+
+
+		<action name="loginAction" class="com.app.action.LoginAction">
+			<interceptor-ref name="loginInterceptor"/>
+			<result name="input">/login.jsp</result>
+			<result name="success" type="redirect">Dashboard.action</result>
+			<result name="error">/login.jsp</result>
+		</action>
+
+		<action name="Dashboard" class="com.app.action.DashboardAction">
+			<result name="success">/index.jsp</result>
+		</action>
+
+		<action name="Logout" class="com.app.action.LogoutAction">
+			<result name="success">/login.jsp</result>
+		</action>
+
+
+
+		<action name="eServiceCreate" class="com.app.action.eServiceAction">
+			<result name="input">/eService.jsp</result>
+			<result name="success">/eService.jsp</result>
+		</action>
+
+	
+        
+       <action name="eServiceSave" method="save"
+			class="com.app.action.eServiceAction">
+			<result name="input">/index.jsp</result>
+			 <result name="success" type="redirect">eServices</result> 
+		</action>  
+		
+		<action name="eServices" class="com.app.action.eServicesAction">
+		<result name="input">/eServices.jsp</result>
+		<result name="success">/eServices.jsp</result>
+		</action>
+		
+		
+		<action name="eServicesView" method="view"
+			class="com.app.action.eServiceAction">
+			<result name="input">/eServiceView.jsp</result>
+			<result name="success">/eServiceView.jsp</result>
+		</action>
+		
+		
+		
+		
+		
+		<action name="mServiceCreate"
+			class="com.app.action.MinistryServiceAction">
+			<result name="input">/ministryService.jsp</result>
+			<result name="success">/ministryService.jsp</result>
+		</action>
+		
+		<action name="mServiceSave" method="save"
+			class="com.app.action.MinistryServiceAction">
+			<result name="input">/index.jsp</result>
+			 <result name="success" type="redirect">mServices</result> 
+		</action>
+		
+		<action name="mServiceView" method="view"
+			class="com.app.action.MinistryServiceAction">
+			<result name="input">/ministryServiceView.jsp</result>
+			<result name="success">/ministryServiceView.jsp</result>
+		</action>
+		
+	
+	<action name="mServices" class="com.app.action.MinsitryServicesAction">
+		<result name="input">/ministryServices.jsp</result>
+		<result name="success">/ministryServices.jsp</result>
+		</action>
+		
+		<action name="mProxyServiceCreate"
+			class="com.app.action.MinistryProxyServiceAction">
+			<result name="input">/ministryProxyService.jsp</result>
+			<result name="success">/ministryProxyService.jsp</result>
+		</action>
+		
+		
+		<action name="mProxyServiceSave" method="save"
+			class="com.app.action.MinistryProxyServiceAction">
+			<result name="input">/index.jsp</result>
+			 <result name="success" type="redirect">mProxyServices</result> 
+		</action>
+		
+		
+		
+		<action name="mProxyServiceView" method="view"
+			class="com.app.action.MinistryProxyServiceAction">
+			<result name="input">/ministryProxyServiceView.jsp</result>
+			<result name="success">/ministryProxyServiceView.jsp</result>
+		</action>
+		
+		
+		<action name="mProxyServices" class="com.app.action.MinsitryProxyServicesAction">
+		<result name="input">/ministryProxyServices.jsp</result>
+		<result name="success">/ministryProxyServices.jsp</result>
+		</action>
+		
+		<action name="bpelServiceCreate"
+			class="com.app.action.BPELServiceAction">
+			<result name="input">/bpelService.jsp</result>
+			<result name="success">/bpelService.jsp</result>
+		</action>
+		
+		
+		<action name="bpelServiceSave" method="save"
+			class="com.app.action.BPELServiceAction">
+			<result name="input">/index.jsp</result>
+			 <result name="success" type="redirect">bpelServices</result> 
+		</action>
+		
+		<action name="bpelServiceView" method="view"
+			class="com.app.action.BPELServiceAction">
+			<result name="input">/bpelServiceView.jsp</result>
+			<result name="success">/bpelServiceView.jsp</result>
+		</action>
+		
+		<action name="bpelServices" class="com.app.action.BPELServicesAction">
+		<result name="input">/bpelServices.jsp</result>
+		<result name="success">/bpelServices.jsp</result>
+		</action>
+		
+		<action name="bpelProxyServiceCreate"
+			class="com.app.action.BPELProxyServiceAction">
+			<result name="input">/bpelProxyService.jsp</result>
+			<result name="success">/bpelProxyService.jsp</result>
+		</action>
+		
+		<action name="bpelProxyServiceSave" method="save"
+			class="com.app.action.BPELProxyServiceAction">
+			<result name="input">/index.jsp</result>
+			 <result name="success" type="redirect">bpelProxyServices</result> 
+		</action>
+		
+		<action name="bpelProxyServiceView" method="view"
+			class="com.app.action.BPELProxyServiceAction">
+			<result name="input">/bpelProxyServiceView.jsp</result>
+			<result name="success">/bpelProxyServiceView.jsp</result>
+		</action>
+		
+		<action name="bpelProxyServices" class="com.app.action.BPELProxyServicesAction">
+		<result name="input">/bpelProxyServices.jsp</result>
+		<result name="success">/bpelProxyServices.jsp</result>
+		</action>
+	
+
+
+
+	</package>
+</struts>
+
+

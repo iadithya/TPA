@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<daos factory="com.server.dao.cache.AccessDAOz">
+	<user_dao>
+		<dao>com.server.dao.daoImpl.UserDAOImpl</dao>
+	</user_dao>
+	<role_dao>
+		<dao>com.server.dao.daoImpl.RoleDAOImpl</dao>
+	</role_dao>
+	<eService_dao>
+		<dao>com.server.dao.daoImpl.eServiceDAOImpl</dao>
+	</eService_dao>
+	
+	<ministry_service_dao>
+		<dao>com.server.dao.daoImpl.MinstryServiceDAOImpl</dao>
+	</ministry_service_dao>
+	
+	<ministry_proxy_service_dao>
+		<dao>com.server.dao.daoImpl.MinistryProxyServiceDAOImpl</dao>
+	</ministry_proxy_service_dao>
+	
+	<bpel_service_dao>
+		<dao>com.server.dao.daoImpl.BPELServiceDAOImpl</dao>
+	</bpel_service_dao>
+	
+	<bpel_proxy_service_dao>
+		<dao>com.server.dao.daoImpl.BPELProxyServiceDAOImpl</dao>
+	</bpel_proxy_service_dao>
+	
+	
+	
+</daos>
